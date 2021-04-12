@@ -134,23 +134,20 @@ Maybe ask whether they have scraped it already
  * コミュニティー検出
  * 中心性
 ** 例えば）
-#+BEGIN_NOTE
-
+#+BEGIN_NOTES
 こちらのモデルはすごくざっくりしして、イメージにするために使いたいと思います。
 
 
 スライドが終わったら階モデルみたいなのもできるか聞いてみてもいいかも。
 
 例えば、
-
 When the slide ends, that maybe you could also
+#+END_NOTES
 
-#+END_NOTE
 
+\[ Y_{ij} = media_{ij} + tweetinfo_{ij} + other_{ij} + \epsilon \]
 
-\[ Y_{i}{j} = media_{i}{j} + tweetinfo_{i}{j} + other_{i}{j} + \epsilon \]
-
-- \(Y_{i}{j}\)は\( i \)日のアーティスト\(j\)視聴回数 (apple_music?)
+- \(Y_{ij}\)は\( i \)日のアーティスト\(j\)視聴回数 (apple_music?)
 
 - \(i \)は日
 
@@ -160,7 +157,7 @@ When the slide ends, that maybe you could also
 
 - \(other \)はその日のその他の変数（例えば曜日など）
 
-- \( tweetinfo_{i}{j} \) はその\(i\)日にtweetした人の集合体の /signficance profile/やその他のネットワークのプロパティー
+- \( tweetinfo_{ij} \) はその\(i\)日にtweetした人の集合体の /signficance profile/やその他のネットワークのプロパティー
 
 * モチーフ分析
 :PROPERTIES:
@@ -233,7 +230,7 @@ When the slide ends, that maybe you could also
 # - なんでかというと本当は自分がまだ届いていないようなコミュニティーを探り出すことが理想だが、エゴネットワークには、そういうコミュニティーの検出は不可能
 
 * 例えば）
-#+BEGIN_NOTE
+#+BEGIN_NOTES
 
 こちらのモデルはすごくざっくりしして、イメージにするために使いたいと思います。
 
@@ -244,13 +241,13 @@ When the slide ends, that maybe you could also
 
 When the slide ends, that maybe you could also
 
-#+END_NOTE
+#+END_NOTES
 
-\[ Y_{i}{j} = media_{i}{j} + tweetinfo_{i}{j} + other_{i}{j} + \epsilon \]
+\[ Y_{ij} = media_{ij} + tweetinfo_{ij} + other_{ij} + \epsilon \]
 
 - \(Y_{i}{j}\)は\( i \)日のアーティスト\(j\)視聴回数 (apple_music?)
 
-- \(i\ )は日
+- \(i \)は日
 
 - \(j \)はアーティスト
 
