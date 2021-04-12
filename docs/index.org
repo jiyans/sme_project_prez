@@ -128,7 +128,6 @@ At the end ask how the tweets collected were chosen.
    - 役割検出
  * コミュニティー検出
  * 中心性
- * Link Prediction
 * モチーフ分析
 :PROPERTIES:
 :ID:       763981a8-cbc9-46d1-b101-097be7f69a50
