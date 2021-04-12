@@ -6,21 +6,26 @@
 #+REVEAL_ROOT: ./reveal.js/
 #+REVEAL_EXTRA_CSS: custom.css
 #+REVEAL_THEME: serif
+#+BEAMER_FRAME_LEVEL: 2
 #+OPTIONS: toc:nil
-
 * データの確認
 #+BEGIN_NOTES
-
 
 その他のデータ：
     ネクライトーキー：MV の視聴回数
     リーガルリリー：spotify, youtube （視聴回数）
     おぶくろ：ネットワーク
 
-At the end ask how the tweets collected were chosen.
+Ask how the tweets collected were chosen. Is it all tweets. Is tweets that have the artists name in them.
+Maybe a hashtag..?
+
+Also ask whether the data like we have for lilly is available for the other artists as well.
+
+Maybe ask whether they have scraped it already
 
 #+END_NOTES
 
+- アーティスト３組: 日向坂46、リーガルリリー、ネクライトーキ
 - 三組共通のデータ：
   - apple music
   - 期間中のメディア露出
@@ -72,11 +77,11 @@ At the end ask how the tweets collected were chosen.
 #+attr_html: :alt "Ego Network" :style border:None; :height 360
 [[./images/egonetwork.png]]
 
-** 次数分布
+# ** 次数分布
 
-定義：ネットワークの入次数や出次数の分布
-[ [ 次数分布の画像？ ] ]
-- このネットワークではフォロワー数の分布やフォロー数の分布
+# 定義：ネットワークの入次数や出次数の分布
+# [ [ 次数分布の画像？ ] ]
+# - このネットワークではフォロワー数の分布やフォロー数の分布
 
 ** 直径
 定義：ネットワークの最も長い最短経路
@@ -128,6 +133,35 @@ At the end ask how the tweets collected were chosen.
    - 役割検出
  * コミュニティー検出
  * 中心性
+** 例えば）
+#+BEGIN_NOTE
+
+こちらのモデルはすごくざっくりしして、イメージにするために使いたいと思います。
+
+
+スライドが終わったら階モデルみたいなのもできるか聞いてみてもいいかも。
+
+例えば、
+
+When the slide ends, that maybe you could also
+
+#+END_NOTE
+
+
+\[ Y_{i}{j} = media_{i}{j} + tweetinfo_{i}{j} + other_{i}{j} + \epsilon \]
+
+- \(Y_{i}{j}\)は\( i \)日のアーティスト\(j\)視聴回数 (apple_music?)
+
+- \(i \)は日
+
+- \(j \)はアーティスト
+
+- \(media \)はメディアの出現を表す変数（例えば回数）
+
+- \(other \)はその日のその他の変数（例えば曜日など）
+
+- \( tweetinfo_{i}{j} \) はその\(i\)日にtweetした人の集合体の /signficance profile/やその他のネットワークのプロパティー
+
 * モチーフ分析
 :PROPERTIES:
 :ID:       763981a8-cbc9-46d1-b101-097be7f69a50
@@ -198,6 +232,34 @@ At the end ask how the tweets collected were chosen.
 # - エゴネットワークで行っても、新しいことはそんなに増えない
 # - なんでかというと本当は自分がまだ届いていないようなコミュニティーを探り出すことが理想だが、エゴネットワークには、そういうコミュニティーの検出は不可能
 
+* 例えば）
+#+BEGIN_NOTE
+
+こちらのモデルはすごくざっくりしして、イメージにするために使いたいと思います。
+
+
+スライドが終わったら階モデルみたいなのもできるか聞いてみてもいいかも。
+
+例えば、
+
+When the slide ends, that maybe you could also
+
+#+END_NOTE
+
+\[ Y_{i}{j} = media_{i}{j} + tweetinfo_{i}{j} + other_{i}{j} + \epsilon \]
+
+- \(Y_{i}{j}\)は\( i \)日のアーティスト\(j\)視聴回数 (apple_music?)
+
+- \(i\ )は日
+
+- \(j \)はアーティスト
+
+- \(media \)はメディアの出現を表す変数（例えば回数）
+
+- \(other \)はその日のその他の変数（例えば曜日など）
+
+- \( tweetinfo \) を潜在変数にし、別のモデルで作成（twitter userレベルで作成）
+
 * 中心性
 
 - 中心性の種類いくつかある
@@ -210,10 +272,9 @@ At the end ask how the tweets collected were chosen.
 
   * PageRank: 最も人気のあるノードに人気のあるノードのこと
 
-- エゴネットワークのための特別なものもある
-  https://www.sciencedirect.com/science/article/abs/pii/S037887330400067X
+- エゴネットワークのための特別なものもある ([[https://www.sciencedirect.com/science/article/abs/pii/S037887330400067X][Here]])
 
-- Ego Networkではみてもそこまで面白くないのかも
+- Ego Networkではみてもそこまで
 
 * 問題点
  - エゴネットワークしかないため、できることが限られてくる
