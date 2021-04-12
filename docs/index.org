@@ -69,7 +69,7 @@ At the end ask how the tweets collected were chosen.
   - 今回のネットワークはこれに当てはまります
 
 #+caption:  画像には表示していない、２次フォロワーの間でのフォローも可能
-#+attr_html: :alt "Ego Network" :style border:None; :height 400
+#+attr_html: :alt "Ego Network" :style border:None; :height 360
 [[./images/egonetwork.png]]
 
 ** 次数分布
