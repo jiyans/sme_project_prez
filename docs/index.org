@@ -3,7 +3,7 @@
 #+Bibliography: /Users/jiyanschneider/Dropbox/Documents/lib/bibliography/bib.bib
 #+EXPORT_OPTIONS: num:nil toc:nil reveal_keyboard:t reveal_overview:t reveal_global_footer:t reveal_global_header:t
 #+REVEAL_TITLE_SLIDE: <h1>%t</h1><br><h2>%s</h2><br><h4>%a</h4>
-#+REVEAL_ROOT: file:./reveal.js/
+#+REVEAL_ROOT: ./reveal.js/
 #+REVEAL_EXTRA_CSS: custom.css
 #+REVEAL_THEME: serif
 #+OPTIONS: toc:nil
