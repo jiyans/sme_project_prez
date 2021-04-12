@@ -282,3 +282,8 @@ When the slide ends, that maybe you could also
    + 例えば一つのアカウントの全員のフォロワーの情報ではなくランダムで選んだ数人にうつり、そうやって進む
    + そうすれば全体のネットワークの構造にもっと近い物ができるのではないかと
  - ネットワーク解析でいいツールを見つけるのは少し難しい
+* Sources:
+- [[./references/02-gnp-smallworld.pdf][Basics]]
+- [[./references/03-motifs.pdf][Motifs]]
+- [[./references/04-communities.pdf][Communities]]
+- [[./references/11-pagerank.pdf][Pagerank]]
