@@ -7,9 +7,9 @@
 <style type="text/css">
 .underline { text-decoration: underline; }
 </style>
-<link rel="stylesheet" href="file:reveal.js/dist/reveal.css"/>
+<link rel="stylesheet" href="file:./reveal.js/dist/reveal.css"/>
 
-<link rel="stylesheet" href="file:reveal.js/dist/theme/serif.css" id="theme"/>
+<link rel="stylesheet" href="file:./reveal.js/dist/theme/serif.css" id="theme"/>
 
 <link rel="stylesheet" href="custom.css"/>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
@@ -22,8 +22,8 @@
 </section>
 
 <section>
-<section id="slide-orgbd107b0">
-<h2 id="orgbd107b0">データの確認</h2>
+<section id="slide-orgcc96805">
+<h2 id="orgcc96805">データの確認</h2>
 <aside class="notes">
 <p>
 
@@ -58,8 +58,8 @@ At the end ask how the tweets collected were chosen.
 </section>
 </section>
 <section>
-<section id="slide-org7c5fc51">
-<h2 id="org7c5fc51">目次</h2>
+<section id="slide-orgb3e4fa3">
+<h2 id="orgb3e4fa3">目次</h2>
 <aside class="notes">
 <ul>
 <li>今回はネットワーク分析で使用可能な・面白そうな分析を集めてみました。</li>
@@ -97,8 +97,8 @@ At the end ask how the tweets collected were chosen.
 </section>
 </section>
 <section>
-<section id="slide-org1e9f168">
-<h2 id="org1e9f168">用語</h2>
+<section id="slide-orge7b816c">
+<h2 id="orge7b816c">用語</h2>
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides" width="80%">
 
 
@@ -150,14 +150,14 @@ At the end ask how the tweets collected were chosen.
 </table>
 
 
-<div id="orgfede5fd" class="figure">
+<div id="org896f93a" class="figure">
 <p><img src="./images/example_graph.png" alt="Directed graph" style="border:None;" />
 </p>
 </div>
 
 </section>
-<section id="slide-orga4de80d">
-<h3 id="orga4de80d">エゴネットワーク</h3>
+<section id="slide-org31d705b">
+<h3 id="org31d705b">エゴネットワーク</h3>
 <ul>
 <li>対象ノード、一次２じフォロワーを含めた集合体をエゴネットワークとよぶ</li>
 <li>今回のネットワークはこれに当てはまります</li>
@@ -165,15 +165,15 @@ At the end ask how the tweets collected were chosen.
 </ul>
 
 
-<div id="orgc7082b8" class="figure">
+<div id="orgd18ab84" class="figure">
 <p><img src="./images/egonetwork.png" alt="&quot;Ego Network&quot;" style="border:None;" height="400" />
 </p>
 <p><span class="figure-number">Figure 2: </span>画像には表示していない、２次フォロワーの間でのフォローも可能</p>
 </div>
 
 </section>
-<section id="slide-org8a7efea">
-<h3 id="org8a7efea">次数分布</h3>
+<section id="slide-org41afcba">
+<h3 id="org41afcba">次数分布</h3>
 <p>
 定義：ネットワークの入次数や出次数の分布
 [ [ 次数分布の画像？ ] ]
@@ -184,8 +184,8 @@ At the end ask how the tweets collected were chosen.
 </ul>
 
 </section>
-<section id="slide-org4882ea1">
-<h3 id="org4882ea1">直径</h3>
+<section id="slide-orga1e0ca8">
+<h3 id="orga1e0ca8">直径</h3>
 <p>
 定義：ネットワークの最も長い最短経路
 </p>
@@ -208,7 +208,7 @@ At the end ask how the tweets collected were chosen.
 <div>
 
 
-<div id="org1ca2253" class="figure">
+<div id="org5619abb" class="figure">
 <p><img src="./images/shortest_path.jpg" alt="&quot;最短経路&quot;" style="border:None;" />
 </p>
 <p><span class="figure-number">Figure 3: </span>最短経路</p>
@@ -217,8 +217,8 @@ At the end ask how the tweets collected were chosen.
 </div>
 
 </section>
-<section id="slide-orgda9ed89">
-<h3 id="orgda9ed89">平均最短路</h3>
+<section id="slide-org659cd71">
+<h3 id="org659cd71">平均最短路</h3>
 <p>
 定義：ネットワークの全部の最短経路の平均
 </p>
@@ -231,8 +231,8 @@ At the end ask how the tweets collected were chosen.
 </ul>
 
 </section>
-<section id="slide-orga58dc1a">
-<h3 id="orga58dc1a">クラスター係数</h3>
+<section id="slide-org13a8825">
+<h3 id="org13a8825">クラスター係数</h3>
 <ul>
 <li>ノードの周りははどのくらい （密接？）なのかを表す数字</li>
 <li>ノードの隣のノードの間のエッジ数をあり得るエッジ数で割ったもの</li>
@@ -242,15 +242,15 @@ At the end ask how the tweets collected were chosen.
 
 
 
-<div id="orgf5e0c90" class="figure">
+<div id="org78e155c" class="figure">
 <p><img src="./images/clustering_coefficient.png" alt="Clustering Coefficient" height="300" style="border:None;" />
 </p>
 <p><span class="figure-number">Figure 4: </span>Clustering Coefficient  <a href="http://snap.stanford.edu/class/cs224w-2019/slides/02-gnp-smallworld.pdf"> (Source)</a></p>
 </div>
 
 </section>
-<section id="slide-org09f573a">
-<h3 id="org09f573a">平均クラスター係数</h3>
+<section id="slide-orgae721e4">
+<h3 id="orgae721e4">平均クラスター係数</h3>
 <ul>
 <li>全体のネットワークのクラスター数の平均</li>
 <li>おそらくエゴネットワークのためで低く見えてしてまう</li>
@@ -259,8 +259,8 @@ At the end ask how the tweets collected were chosen.
 </section>
 </section>
 <section>
-<section id="slide-org718d10d">
-<h2 id="org718d10d">分析手法</h2>
+<section id="slide-orge7397be">
+<h2 id="orge7397be">分析手法</h2>
 <ul>
 <li>モチーフ分析
 <ul>
@@ -270,21 +270,20 @@ At the end ask how the tweets collected were chosen.
 </ul></li>
 <li>コミュニティー検出</li>
 <li>中心性</li>
-<li>Link Prediction</li>
 
 </ul>
 </section>
 </section>
 <section>
-<section id="slide-org80aa0ff">
-<h2 id="org80aa0ff">モチーフ分析</h2>
+<section id="slide-orge3766a7">
+<h2 id="orge3766a7">モチーフ分析</h2>
 <ul>
 <li>3ノードの繋がり方は１３通り存在する</li>
 
 </ul>
 
 
-<div id="org497c2a4" class="figure">
+<div id="org7d86ef1" class="figure">
 <p><img src="./images/motifs.png" alt="&quot;Ego Network&quot;" style="border:None;" />
 </p>
 </div>
@@ -294,10 +293,10 @@ At the end ask how the tweets collected were chosen.
 </p>
 
 </section>
-<section id="slide-org7347374">
-<h3 id="org7347374">Significance Profile</h3>
+<section id="slide-org5b77a24">
+<h3 id="org5b77a24">Significance Profile</h3>
 
-<div id="org11c6594" class="figure">
+<div id="orgb0826fc" class="figure">
 <p><img src="./images/significance_profile.jpg" alt="&quot;Ego Network&quot;" style="border:None" height="300" />
 </p>
 <p><span class="figure-number">Figure 6: </span><a href="http://www.uvm.edu/pdodds/teaching/courses/2009-08UVM-300/docs/others/2004/milo2004a.pdf">Superfamilies of Evolved and Designed Networks</a></p>
@@ -312,16 +311,16 @@ At the end ask how the tweets collected were chosen.
 
 </ul>
 </section>
-<section id="slide-org1ef58a8">
-<h3 id="org1ef58a8">Significance Profile</h3>
+<section id="slide-orgc443014">
+<h3 id="orgc443014">Significance Profile</h3>
 
-<div id="org351545b" class="figure">
+<div id="org57a2f21" class="figure">
 <p><img src="./images/significance_profile.jpg" alt="significance_profile.jpg" />
 </p>
 </div>
 </section>
-<section id="slide-orgd4b0367">
-<h3 id="orgd4b0367">実装の手法例</h3>
+<section id="slide-org7842d64">
+<h3 id="org7842d64">実装の手法例</h3>
 <ul>
 <li>ランダムで作ったネットワークの各モチーフの分布に本ネットワークの分布を比べて需要性プロファイルを作成</li>
 <li>ネットワークにあるモチーフの分布でそのモチーフの重要性を計算数る</li>
@@ -333,8 +332,8 @@ At the end ask how the tweets collected were chosen.
 
 </ul>
 </section>
-<section id="slide-org739ab3c">
-<h3 id="org739ab3c">Z-scoreの算出</h3>
+<section id="slide-org0fb9f55">
+<h3 id="org0fb9f55">Z-scoreの算出</h3>
 <p>
 \( Z_{i} = \frac{N_{i}^{real} - N_{i}^{rand}}{sd(N_{i}^{rand})} \)
 </p>
@@ -347,8 +346,8 @@ At the end ask how the tweets collected were chosen.
 </ul>
 
 </section>
-<section id="slide-org5d90d18">
-<h3 id="org5d90d18">役割検出</h3>
+<section id="slide-org360b13d">
+<h3 id="org360b13d">役割検出</h3>
 <ul>
 <li>各ノードのモチーフ分布をみて、ネットワークの中での役割を見つける</li>
 
@@ -357,7 +356,7 @@ At the end ask how the tweets collected were chosen.
 <div class="twocolumn" display: flex>
 <div>
 
-<div id="org4d67beb" class="figure">
+<div id="orgf456b91" class="figure">
 <p><img src="./images/role_discovery.png" alt="&quot;役割検出&quot;" style="border:None;" />
 </p>
 <p><span class="figure-number">Figure 8: </span>役割検出</p>
@@ -376,10 +375,10 @@ At the end ask how the tweets collected were chosen.
 </div>
 </div>
 </section>
-<section id="slide-orgcb1371f">
-<h3 id="orgcb1371f">RolX</h3>
+<section id="slide-orgdcd0185">
+<h3 id="orgdcd0185">RolX</h3>
 
-<div id="orgbf1faf0" class="figure">
+<div id="orgc9dd2d7" class="figure">
 <p><img src="./images/role_disc_example.png" alt="役割検出" width="800" style="border:None;" />
 </p>
 <p><span class="figure-number">Figure 9: </span>Co-Authorship Net <a href="http://snap.stanford.edu/class/cs224w-2019/slides/03-motifs.pdf"> (Source)</a></p>
@@ -388,8 +387,8 @@ At the end ask how the tweets collected were chosen.
 </section>
 </section>
 <section>
-<section id="slide-org8d6a83e">
-<h2 id="org8d6a83e">中心性</h2>
+<section id="slide-orge1025b8">
+<h2 id="orge1025b8">中心性</h2>
 <ul>
 <li>中心性の種類いくつかある
 
@@ -414,8 +413,8 @@ At the end ask how the tweets collected were chosen.
 </section>
 </section>
 <section>
-<section id="slide-orgd78d62e">
-<h2 id="orgd78d62e">問題点</h2>
+<section id="slide-orgf1fbabc">
+<h2 id="orgf1fbabc">問題点</h2>
 <ul>
 <li>エゴネットワークしかないため、できることが限られてくる
 <ul>
@@ -431,11 +430,11 @@ At the end ask how the tweets collected were chosen.
 </section>
 </div>
 </div>
-<script src="file:reveal.js/dist/reveal.js"></script>
-<script src="file:reveal.js/plugin/markdown/markdown.js"></script>
-<script src="file:reveal.js/plugin/notes/notes.js"></script>
-<script src="file:reveal.js/plugin/search/search.js"></script>
-<script src="file:reveal.js/plugin/zoom/zoom.js"></script>
+<script src="file:./reveal.js/dist/reveal.js"></script>
+<script src="file:./reveal.js/plugin/markdown/markdown.js"></script>
+<script src="file:./reveal.js/plugin/notes/notes.js"></script>
+<script src="file:./reveal.js/plugin/search/search.js"></script>
+<script src="file:./reveal.js/plugin/zoom/zoom.js"></script>
 <script>
 // Full list of configuration options available here:
 // https://github.com/hakimel/reveal.js#configuration
