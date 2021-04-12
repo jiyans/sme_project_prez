@@ -1,0 +1,224 @@
+#+TITLE: Sony Music Entertainment
+#+SUBTITLE: ネットワーク分析
+#+Bibliography: /Users/jiyanschneider/Dropbox/Documents/lib/bibliography/bib.bib
+#+EXPORT_OPTIONS: num:nil toc:nil reveal_keyboard:t reveal_overview:t reveal_global_footer:t reveal_global_header:t
+#+REVEAL_TITLE_SLIDE: <h1>%t</h1><br><h2>%s</h2><br><h4>%a</h4>
+#+REVEAL_ROOT: file:reveal.js/
+#+REVEAL_EXTRA_CSS: custom.css
+#+REVEAL_THEME: serif
+#+OPTIONS: toc:nil
+
+* データの確認
+#+BEGIN_NOTES
+
+
+その他のデータ：
+    ネクライトーキー：MV の視聴回数
+    リーガルリリー：spotify, youtube （視聴回数）
+    おぶくろ：ネットワーク
+
+At the end ask how the tweets collected were chosen.
+
+#+END_NOTES
+
+- 三組共通のデータ：
+  - apple music
+  - 期間中のメディア露出
+  - ツイート情報
+  - フォロワーリスト
+
+* 目次
+#+BEGIN_NOTES
+- 今回はネットワーク分析で使用可能な・面白そうな分析を集めてみました。
+- いただいたデータには
+  - ３アーティストの apple music, tweets, twitter１次
+
+
+プレゼンの構造はこんな感じです
+
+1. 用語
+2. 記述統計
+3. 分析手法の紹介
+4. 問題点
+
+#+END_NOTES
+
+ * 用語
+ * 記述統計
+ * 分析手法の紹介
+ * 問題点
+
+* 用語
+
+#+ATTR_HTML: :width 80%
+| 単語                   | 説明                           | 今回で言えば                          |
+|------------------------+--------------------------------+---------------------------------------|
+| ノード (Node)          | データの中の頂点               | 一つのTwitter Account                 |
+| エッジ (Edge)          | データの中の辺                 | 一つのフォロ                          |
+| 入次数 (In-Degree)     | 某ノードに入ってくるエッジ数   | 一人のフォロワー数　                  |
+| 出次数 (Out-Degree)    | 某ノードから出ていくエッジの数 | 一人がフォローしている数              |
+| 次数 (Degree)          | 一つのノードにつながるエッジ数 | 一人のフォロワーとフォロー数の合計    |
+
+#+attr_html: :alt Directed graph  :style border:None;
+[[./images/example_graph.png]]
+
+** エゴネットワーク
+
+
+  - 対象ノード、一次２じフォロワーを含めた集合体をエゴネットワークとよぶ
+  - 今回のネットワークはこれに当てはまります
+
+#+caption:  画像には表示していない、２次フォロワーの間でのフォローも可能
+#+attr_html: :alt "Ego Network" :style border:None; :height 400
+[[./images/egonetwork.png]]
+
+** 次数分布
+
+定義：ネットワークの入次数や出次数の分布
+[ [ 次数分布の画像？ ] ]
+- このネットワークではフォロワー数の分布やフォロー数の分布
+
+** 直径
+定義：ネットワークの最も長い最短経路
+
+#+REVEAL_HTML: <div class="twocolumn" display: flex>
+#+REVEAL_HTML: <div>
+
+- A から D へ：3
+
+- B から D へ：2
+
+- D から C へ：1
+
+- C から B へ： -
+
+#+REVEAL_HTML: </div>
+#+REVEAL_HTML: <div>
+
+#+attr_html: :alt "最短経路" :style border:None;
+#+CAPTION: 最短経路
+    [[./images/shortest_path.jpg]]
+#+REVEAL_HTML: </div>
+#+REVEAL_HTML: </div>
+
+** 平均最短路
+定義：ネットワークの全部の最短経路の平均
+
+- Small world Phenomenon
+- Facebook 上での平均最短路は3.83
+- エゴネットワークだと必ず1と２の間
+
+** クラスター係数
+
+- ノードの周りははどのくらい （密接？）なのかを表す数字
+- ノードの隣のノードの間のエッジ数をあり得るエッジ数で割ったもの
+- ノード \( i \)の次数は \( k_{i} \)
+
+
+#+attr_html: :alt Clustering Coefficient  :height 300 :style border:None;
+#+caption: Clustering Coefficient  [[http://snap.stanford.edu/class/cs224w-2019/slides/02-gnp-smallworld.pdf][ (Source)]]
+[[./images/clustering_coefficient.png]]
+
+** 平均クラスター係数
+- 全体のネットワークのクラスター数の平均
+- おそらくエゴネットワークのためで低く見えてしてまう
+* 分析手法
+ * モチーフ分析
+   - 重要性プロファイル
+   - 役割検出
+ * コミュニティー検出
+ * 中心性
+ * Link Prediction
+* モチーフ分析
+:PROPERTIES:
+:ID:       763981a8-cbc9-46d1-b101-097be7f69a50
+:END:
+- 3ノードの繋がり方は１３通り存在する
+
+#+attr_html: :alt "Ego Network" :style border:None;
+[[./images/motifs.png]]
+
+ 三つのノードの間で可能な繋がり方
+
+** Significance Profile
+#+attr_html: :alt "Ego Network" :style border:None  :height 300
+#+Caption:  [[http://www.uvm.edu/pdodds/teaching/courses/2009-08UVM-300/docs/others/2004/milo2004a.pdf][Superfamilies of Evolved and Designed Networks]]
+[[./images/significance_profile.jpg]]
+
+注目点
+- 分野によって重要性プロファイルが似ている
+- それぞれのモチーフの特性を吟味する
+** Significance Profile
+[[./images/significance_profile.jpg]]
+** 実装の手法例
+- ランダムで作ったネットワークの各モチーフの分布に本ネットワークの分布を比べて需要性プロファイルを作成
+- ネットワークにあるモチーフの分布でそのモチーフの重要性を計算数る
+- 3-モチーフ、ノードの関係性
+- ベースのモデルを選び、それに比べて、モチーフの z-score を算出
+- 例えばスケールフリーのネットワークの分布をもつランダムなネットワークをシミュレーション
+- シミュレーションだけではなく、典型的なソーシャルネットワークに比べることもできる
+- アーティスト同士での significance も計算可能
+** Z-scoreの算出
+\( Z_{i} = \frac{N_{i}^{real} - N_{i}^{rand}}{sd(N_{i}^{rand})} \)
+
+- \( N_{i}^{real} \)  (モチーフ \( i \)　が実際に起きた回数)
+
+- \( N_{i}^{rand} \)  (モチーフ \( i \) がシミュレーションで起きた回数)
+
+** 役割検出
+- 各ノードのモチーフ分布をみて、ネットワークの中での役割を見つける
+
+#+REVEAL_HTML: <div class="twocolumn" display: flex>
+#+REVEAL_HTML: <div>
+#+attr_html: :alt "役割検出" :style border:None;
+#+CAPTION: 役割検出
+    [[./images/role_discovery.png]]
+
+#+REVEAL_HTML: </div>
+#+REVEAL_HTML: <div>
+
+- 青：一人をフォローする役割
+- 緑：フォローされる役割
+- 赤：複数人をフォローする人
+
+#+REVEAL_HTML: </div>
+#+REVEAL_HTML: </div>
+** RolX
+
+#+attr_html: :alt 役割検出  :width 800 :style border:None;
+#+CAPTION: Co-Authorship Net [[http://snap.stanford.edu/class/cs224w-2019/slides/03-motifs.pdf][ (Source)]]
+    [[./images/role_disc_example.png]]
+
+# * コミュニティー検出
+# - コミュニティーのクラスタリングアルゴリズムを使用
+
+# - 現在届いていないようなコミュにテーにに突破
+
+# - エゴネットワークでしても、できることはそんなに増えない可能性が高い
+
+# - エゴネットワークで行っても、新しいことはそんなに増えない
+# - なんでかというと本当は自分がまだ届いていないようなコミュニティーを探り出すことが理想だが、エゴネットワークには、そういうコミュニティーの検出は不可能
+
+* 中心性
+
+- 中心性の種類いくつかある
+
+  * 入次数中心性：フォロワーの一番多い人
+
+  * 近接中心性：全員への平均最短ルートが一番短い
+
+  * 媒介中心性：全員から全員への最短ルートに最も出てくるノード
+
+  * PageRank: 最も人気のあるノードに人気のあるノードのこと
+
+- エゴネットワークのための特別なものもある
+  https://www.sciencedirect.com/science/article/abs/pii/S037887330400067X
+
+- Ego Networkではみてもそこまで面白くないのかも
+
+* 問題点
+ - エゴネットワークしかないため、できることが限られてくる
+   + 幅優先探索ではなく深さ優先でデータを収集は可能か？
+   + 例えば一つのアカウントの全員のフォロワーの情報ではなくランダムで選んだ数人にうつり、そうやって進む
+   + そうすれば全体のネットワークの構造にもっと近い物ができるのではないかと
+ - ネットワーク解析でいいツールを見つけるのは少し難しい

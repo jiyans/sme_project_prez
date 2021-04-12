@@ -1,0 +1,82 @@
+* Egonet
+#+begin_src dot :file images/egonet.png
+
+digraph EgoNet {
+
+リーガルリリー
+A -> リーガルリリー[center = true]
+B -> リーガルリリー
+C -> リーガルリリー
+D -> リーガルリリー
+
+
+C -> D
+
+A -> B
+
+D -> C
+
+E -> A
+F -> A
+G -> A
+G -> E
+E -> B
+F -> B
+G -> B
+H -> G [color = red]
+
+}
+
+#+end_src
+
+* Degree Distribution
+#+begin_src dot :file images/degree_dist.png
+digraph Degree_Distribution {
+rankdir="LR"
+A -> B -> D
+A -> D
+B -> A 
+}
+#+end_src
+
+#+RESULTS:
+[[file:degree_dist.png]]
+*
+* Breadth-depth first
+
+#+begin_src dot :file images/search.png
+
+    digraph ""
+{
+   label="(EXP (* (X) (X)))"
+   n018 ;
+   n018 [label="Regal Lily"] ;
+   n018 -> n019 [label=2];
+   n019 [label="A"] ;
+   n018 -> n20 [label=1];
+   n019 -> n020 ;
+   n020 [label="X"] ;
+   n019 -> n021 ;
+   n021 [label="X"] ;
+}
+#+end_src
+
+#+RESULTS:
+[[file:search.png]]
+* 最短路
+#+begin_src dot :file images/shortest_path.jpg
+digraph "digraph"
+{
+   A;
+   A -> B ;
+   B;
+   C;
+   B -> C ;
+   D ;
+   D -> C ;
+   C -> D ;
+}
+#+end_src
+
+#+RESULTS:
+[[file:shortest_path.jpg]]

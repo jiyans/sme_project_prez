@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Sony Music Entertainment</title>
+<meta name="author" content="Jiyan Jonas Schneider"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="file:reveal.js/dist/reveal.css"/>
+
+<link rel="stylesheet" href="file:reveal.js/dist/theme/serif.css" id="theme"/>
+
+<link rel="stylesheet" href="custom.css"/>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide">
+<h1>Sony Music Entertainment</h1><br><h2>ネットワーク分析</h2><br><h4>Jiyan Jonas Schneider</h4>
+</section>
+
+<section>
+<section id="slide-orgbd107b0">
+<h2 id="orgbd107b0">データの確認</h2>
+<aside class="notes">
+<p>
+
+</p>
+
+
+<p>
+その他のデータ：
+    ネクライトーキー：MV の視聴回数
+    リーガルリリー：spotify, youtube （視聴回数）
+    おぶくろ：ネットワーク
+</p>
+
+<p>
+At the end ask how the tweets collected were chosen.
+</p>
+
+</aside>
+
+<ul>
+<li>三組共通のデータ：
+<ul>
+<li>apple music</li>
+<li>期間中のメディア露出</li>
+<li>ツイート情報</li>
+<li>フォロワーリスト</li>
+
+</ul></li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-org7c5fc51">
+<h2 id="org7c5fc51">目次</h2>
+<aside class="notes">
+<ul>
+<li>今回はネットワーク分析で使用可能な・面白そうな分析を集めてみました。</li>
+<li>いただいたデータには
+<ul>
+<li>３アーティストの apple music, tweets, twitter１次</li>
+
+</ul></li>
+
+</ul>
+
+
+<p>
+プレゼンの構造はこんな感じです
+</p>
+
+<ol>
+<li>用語</li>
+<li>記述統計</li>
+<li>分析手法の紹介</li>
+<li>問題点</li>
+
+</ol>
+
+</aside>
+
+<ul>
+<li>用語</li>
+<li>記述統計</li>
+<li>分析手法の紹介</li>
+<li>問題点</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-org1e9f168">
+<h2 id="org1e9f168">用語</h2>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides" width="80%">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">単語</th>
+<th scope="col" class="org-left">説明</th>
+<th scope="col" class="org-left">今回で言えば</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">ノード (Node)</td>
+<td class="org-left">データの中の頂点</td>
+<td class="org-left">一つのTwitter Account</td>
+</tr>
+
+<tr>
+<td class="org-left">エッジ (Edge)</td>
+<td class="org-left">データの中の辺</td>
+<td class="org-left">一つのフォロ</td>
+</tr>
+
+<tr>
+<td class="org-left">入次数 (In-Degree)</td>
+<td class="org-left">某ノードに入ってくるエッジ数</td>
+<td class="org-left">一人のフォロワー数　</td>
+</tr>
+
+<tr>
+<td class="org-left">出次数 (Out-Degree)</td>
+<td class="org-left">某ノードから出ていくエッジの数</td>
+<td class="org-left">一人がフォローしている数</td>
+</tr>
+
+<tr>
+<td class="org-left">次数 (Degree)</td>
+<td class="org-left">一つのノードにつながるエッジ数</td>
+<td class="org-left">一人のフォロワーとフォロー数の合計</td>
+</tr>
+</tbody>
+</table>
+
+
+<div id="orgfede5fd" class="figure">
+<p><img src="./images/example_graph.png" alt="Directed graph" style="border:None;" />
+</p>
+</div>
+
+</section>
+<section id="slide-orga4de80d">
+<h3 id="orga4de80d">エゴネットワーク</h3>
+<ul>
+<li>対象ノード、一次２じフォロワーを含めた集合体をエゴネットワークとよぶ</li>
+<li>今回のネットワークはこれに当てはまります</li>
+
+</ul>
+
+
+<div id="orgc7082b8" class="figure">
+<p><img src="./images/egonetwork.png" alt="&quot;Ego Network&quot;" style="border:None;" height="400" />
+</p>
+<p><span class="figure-number">Figure 2: </span>画像には表示していない、２次フォロワーの間でのフォローも可能</p>
+</div>
+
+</section>
+<section id="slide-org8a7efea">
+<h3 id="org8a7efea">次数分布</h3>
+<p>
+定義：ネットワークの入次数や出次数の分布
+[ [ 次数分布の画像？ ] ]
+</p>
+<ul>
+<li>このネットワークではフォロワー数の分布やフォロー数の分布</li>
+
+</ul>
+
+</section>
+<section id="slide-org4882ea1">
+<h3 id="org4882ea1">直径</h3>
+<p>
+定義：ネットワークの最も長い最短経路
+</p>
+
+<div class="twocolumn" display: flex>
+<div>
+
+<ul>
+<li>A から D へ：3</li>
+
+<li>B から D へ：2</li>
+
+<li>D から C へ：1</li>
+
+<li>C から B へ： -</li>
+
+</ul>
+
+</div>
+<div>
+
+
+<div id="org1ca2253" class="figure">
+<p><img src="./images/shortest_path.jpg" alt="&quot;最短経路&quot;" style="border:None;" />
+</p>
+<p><span class="figure-number">Figure 3: </span>最短経路</p>
+</div>
+</div>
+</div>
+
+</section>
+<section id="slide-orgda9ed89">
+<h3 id="orgda9ed89">平均最短路</h3>
+<p>
+定義：ネットワークの全部の最短経路の平均
+</p>
+
+<ul>
+<li>Small world Phenomenon</li>
+<li>Facebook 上での平均最短路は3.83</li>
+<li>エゴネットワークだと必ず1と２の間</li>
+
+</ul>
+
+</section>
+<section id="slide-orga58dc1a">
+<h3 id="orga58dc1a">クラスター係数</h3>
+<ul>
+<li>ノードの周りははどのくらい （密接？）なのかを表す数字</li>
+<li>ノードの隣のノードの間のエッジ数をあり得るエッジ数で割ったもの</li>
+<li>ノード \( i \)の次数は \( k_{i} \)</li>
+
+</ul>
+
+
+
+<div id="orgf5e0c90" class="figure">
+<p><img src="./images/clustering_coefficient.png" alt="Clustering Coefficient" height="300" style="border:None;" />
+</p>
+<p><span class="figure-number">Figure 4: </span>Clustering Coefficient  <a href="http://snap.stanford.edu/class/cs224w-2019/slides/02-gnp-smallworld.pdf"> (Source)</a></p>
+</div>
+
+</section>
+<section id="slide-org09f573a">
+<h3 id="org09f573a">平均クラスター係数</h3>
+<ul>
+<li>全体のネットワークのクラスター数の平均</li>
+<li>おそらくエゴネットワークのためで低く見えてしてまう</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-org718d10d">
+<h2 id="org718d10d">分析手法</h2>
+<ul>
+<li>モチーフ分析
+<ul>
+<li>重要性プロファイル</li>
+<li>役割検出</li>
+
+</ul></li>
+<li>コミュニティー検出</li>
+<li>中心性</li>
+<li>Link Prediction</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-org80aa0ff">
+<h2 id="org80aa0ff">モチーフ分析</h2>
+<ul>
+<li>3ノードの繋がり方は１３通り存在する</li>
+
+</ul>
+
+
+<div id="org497c2a4" class="figure">
+<p><img src="./images/motifs.png" alt="&quot;Ego Network&quot;" style="border:None;" />
+</p>
+</div>
+
+<p>
+三つのノードの間で可能な繋がり方
+</p>
+
+</section>
+<section id="slide-org7347374">
+<h3 id="org7347374">Significance Profile</h3>
+
+<div id="org11c6594" class="figure">
+<p><img src="./images/significance_profile.jpg" alt="&quot;Ego Network&quot;" style="border:None" height="300" />
+</p>
+<p><span class="figure-number">Figure 6: </span><a href="http://www.uvm.edu/pdodds/teaching/courses/2009-08UVM-300/docs/others/2004/milo2004a.pdf">Superfamilies of Evolved and Designed Networks</a></p>
+</div>
+
+<p>
+注目点
+</p>
+<ul>
+<li>分野によって重要性プロファイルが似ている</li>
+<li>それぞれのモチーフの特性を吟味する</li>
+
+</ul>
+</section>
+<section id="slide-org1ef58a8">
+<h3 id="org1ef58a8">Significance Profile</h3>
+
+<div id="org351545b" class="figure">
+<p><img src="./images/significance_profile.jpg" alt="significance_profile.jpg" />
+</p>
+</div>
+</section>
+<section id="slide-orgd4b0367">
+<h3 id="orgd4b0367">実装の手法例</h3>
+<ul>
+<li>ランダムで作ったネットワークの各モチーフの分布に本ネットワークの分布を比べて需要性プロファイルを作成</li>
+<li>ネットワークにあるモチーフの分布でそのモチーフの重要性を計算数る</li>
+<li>3-モチーフ、ノードの関係性</li>
+<li>ベースのモデルを選び、それに比べて、モチーフの z-score を算出</li>
+<li>例えばスケールフリーのネットワークの分布をもつランダムなネットワークをシミュレーション</li>
+<li>シミュレーションだけではなく、典型的なソーシャルネットワークに比べることもできる</li>
+<li>アーティスト同士での significance も計算可能</li>
+
+</ul>
+</section>
+<section id="slide-org739ab3c">
+<h3 id="org739ab3c">Z-scoreの算出</h3>
+<p>
+\( Z_{i} = \frac{N_{i}^{real} - N_{i}^{rand}}{sd(N_{i}^{rand})} \)
+</p>
+
+<ul>
+<li>\( N_{i}^{real} \)  (モチーフ \( i \)　が実際に起きた回数)</li>
+
+<li>\( N_{i}^{rand} \)  (モチーフ \( i \) がシミュレーションで起きた回数)</li>
+
+</ul>
+
+</section>
+<section id="slide-org5d90d18">
+<h3 id="org5d90d18">役割検出</h3>
+<ul>
+<li>各ノードのモチーフ分布をみて、ネットワークの中での役割を見つける</li>
+
+</ul>
+
+<div class="twocolumn" display: flex>
+<div>
+
+<div id="org4d67beb" class="figure">
+<p><img src="./images/role_discovery.png" alt="&quot;役割検出&quot;" style="border:None;" />
+</p>
+<p><span class="figure-number">Figure 8: </span>役割検出</p>
+</div>
+
+</div>
+<div>
+
+<ul>
+<li>青：一人をフォローする役割</li>
+<li>緑：フォローされる役割</li>
+<li>赤：複数人をフォローする人</li>
+
+</ul>
+
+</div>
+</div>
+</section>
+<section id="slide-orgcb1371f">
+<h3 id="orgcb1371f">RolX</h3>
+
+<div id="orgbf1faf0" class="figure">
+<p><img src="./images/role_disc_example.png" alt="役割検出" width="800" style="border:None;" />
+</p>
+<p><span class="figure-number">Figure 9: </span>Co-Authorship Net <a href="http://snap.stanford.edu/class/cs224w-2019/slides/03-motifs.pdf"> (Source)</a></p>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-org8d6a83e">
+<h2 id="org8d6a83e">中心性</h2>
+<ul>
+<li>中心性の種類いくつかある
+
+<ul>
+<li>入次数中心性：フォロワーの一番多い人</li>
+
+<li>近接中心性：全員への平均最短ルートが一番短い</li>
+
+<li>媒介中心性：全員から全員への最短ルートに最も出てくるノード</li>
+
+<li>PageRank: 最も人気のあるノードに人気のあるノードのこと</li>
+
+</ul></li>
+
+<li>エゴネットワークのための特別なものもある
+<a href="https://www.sciencedirect.com/science/article/abs/pii/S037887330400067X">https://www.sciencedirect.com/science/article/abs/pii/S037887330400067X</a></li>
+
+<li>Ego Networkではみてもそこまで面白くないのかも</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-orgd78d62e">
+<h2 id="orgd78d62e">問題点</h2>
+<ul>
+<li>エゴネットワークしかないため、できることが限られてくる
+<ul>
+<li>幅優先探索ではなく深さ優先でデータを収集は可能か？</li>
+<li>例えば一つのアカウントの全員のフォロワーの情報ではなくランダムで選んだ数人にうつり、そうやって進む</li>
+<li>そうすれば全体のネットワークの構造にもっと近い物ができるのではないかと</li>
+
+</ul></li>
+<li>ネットワーク解析でいいツールを見つけるのは少し難しい</li>
+
+</ul>
+</section>
+</section>
+</div>
+</div>
+<script src="file:reveal.js/dist/reveal.js"></script>
+<script src="file:reveal.js/plugin/markdown/markdown.js"></script>
+<script src="file:reveal.js/plugin/notes/notes.js"></script>
+<script src="file:reveal.js/plugin/search/search.js"></script>
+<script src="file:reveal.js/plugin/zoom/zoom.js"></script>
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: 'c',
+rollingLinks: false,
+keyboard: true,
+mouseWheel: false,
+fragmentInURL: false,
+hashOneBasedIndex: false,
+pdfSeparateFragments: true,
+
+overview: true,
+
+transition: 'convex',
+transitionSpeed: 'default',
+
+// Plugins with reveal.js 4.x
+plugins: [ RevealMarkdown, RevealNotes, RevealSearch, RevealZoom ],
+
+// Optional libraries used to extend reveal.js
+dependencies: [
+]
+
+});
+</script>
+</body>
+</html>
