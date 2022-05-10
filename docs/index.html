@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Sony Music Entertainment</title>
+<meta name="author" content="jiyan.schneider@gmail.com"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="./reveal.js/dist/reveal.css"/>
+
+<link rel="stylesheet" href="./reveal.js/dist/theme/serif.css" id="theme"/>
+
+<link rel="stylesheet" href="custom.css"/>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide">
+<h1>Sony Music Entertainment</h1><br><h2>ネットワーク分析</h2><br><h4>jiyan.schneider@gmail.com</h4>
+</section>
+<section id="table-of-contents-section">
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#/slide-orgb4287f8">データの確認</a>
+<ul>
+<li><a href="#/slide-org9ad76ce">Data</a></li>
+<li><a href="#/slide-org0ee4504"><span class="todo TODO">TODO</span> MOVE THIS SECTION Data Sampling</a></li>
+</ul>
+</li>
+<li><a href="#/slide-orge254f20">モチーフ分析</a>
+<ul>
+<li><a href="#/slide-org195029c">Significance Profile</a></li>
+<li><a href="#/slide-orgd233a84">Significance Profile</a></li>
+<li><a href="#/slide-orge521014">実装の手法例（計画）</a></li>
+<li><a href="#/slide-org5826f8f">Z-scoreの算出</a></li>
+</ul>
+</li>
+<li><a href="#/slide-orga4f4551">ネットワーク構造の結果</a>
+<ul>
+<li><a href="#/slide-orgeb1328b"><span class="todo TODO">TODO</span> ネットワークはこんな感じにできた</a></li>
+<li><a href="#/slide-org23865df"><span class="todo TODO">TODO</span> hinatazaka46</a></li>
+<li><a href="#/slide-org412efde"><span class="todo TODO">TODO</span> ILikeAkairo</a></li>
+<li><a href="#/slide-org35f0595"><span class="todo TODO">TODO</span> sakurazaka46</a></li>
+<li><a href="#/slide-orgce24b82"><span class="todo TODO">TODO</span> hinatazaka46</a></li>
+<li><a href="#/slide-org0fd667d"><span class="todo TODO">TODO</span> hinatazaka46</a></li>
+<li><a href="#/slide-org154cd7e"><span class="todo TODO">TODO</span> hinatazaka46</a></li>
+</ul>
+</li>
+<li><a href="#/slide-orgf0ff6bc">モチーフ分析結果</a>
+<ul>
+<li><a href="#/slide-orga31a5a8"><span class="todo TODO">TODO</span> hinatazaka46</a></li>
+<li><a href="#/slide-orgf808a71"><span class="todo TODO">TODO</span> ILikeAkairo</a></li>
+<li><a href="#/slide-org7666107"><span class="todo TODO">TODO</span> sakurazaka46</a></li>
+<li><a href="#/slide-orgf847d47"><span class="todo TODO">TODO</span> hinatazaka46</a></li>
+<li><a href="#/slide-org2d1aa6c"><span class="todo TODO">TODO</span> hinatazaka46</a></li>
+<li><a href="#/slide-org0060229"><span class="todo TODO">TODO</span> hinatazaka46</a></li>
+<li><a href="#/slide-org29dbd90">全体のネットワーク</a></li>
+</ul>
+</li>
+<li><a href="#/slide-orgc81b4bb">Discussion</a>
+<ul>
+<li><a href="#/slide-orgac91166">Clustering・中心性など</a></li>
+</ul>
+</li>
+<li><a href="#/slide-org5ac2b17">More Ideas</a></li>
+</ul>
+</div>
+</div>
+</section>
+
+<section>
+<section id="slide-orgb4287f8">
+<h2 id="orgb4287f8">データの確認</h2>
+<aside class="notes">
+<p>
+データの確認
+</p>
+
+</aside>
+</section>
+<section id="slide-org9ad76ce">
+<h3 id="org9ad76ce">Data</h3>
+<div class="outline-text-3" id="text-org9ad76ce">
+</div>
+</section>
+<section id="slide-org2be04d6">
+<h4 id="org2be04d6">1次フォロワー</h4>
+
+<div id="org6eb12d0" class="figure">
+<p><img src="./images/screenshot-03.png" alt="screenshot-03.png" />
+</p>
+<p><span class="figure-number">Figure 1: </span>Follower〇〇.json</p>
+</div>
+
+</section>
+<section id="slide-org5c73eec">
+<h4 id="org5c73eec">2次フォロワー</h4>
+
+<div id="org67126c4" class="figure">
+<p><img src="./images/screenshot-02.png" alt="screenshot-02.png" />
+</p>
+<p><span class="figure-number">Figure 2: </span>FujiKaze.json</p>
+</div>
+</section>
+<section id="slide-org0ee4504">
+<h3 id="org0ee4504"><span class="todo TODO">TODO</span> MOVE THIS SECTION Data Sampling</h3>
+
+<div id="orgef02f36" class="figure">
+<p><img src="./images/searches.jpg" alt="searches.jpg" />
+</p>
+<p><span class="figure-number">Figure 3: </span>Data Traversal (幅優先探索)</p>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-orge254f20">
+<h2 id="orge254f20">モチーフ分析</h2>
+<ul>
+<li>3ノードの繋がり方は１３通り存在する</li>
+
+</ul>
+
+<div id="org976cf5b" class="figure">
+<p><img src="./images/motifs.png" alt="&quot;Ego Network&quot;" style="border:None;" />
+</p>
+</div>
+<ul>
+<li>三つのノードの間で可能な繋がり方</li>
+
+</ul>
+</section>
+<section id="slide-org195029c">
+<h3 id="org195029c">Significance Profile</h3>
+
+<div id="orge501069" class="figure">
+<p><img src="./images/significance_profile.jpg" alt="&quot;Ego Network&quot;" style="border:None" height="300" />
+</p>
+<p><span class="figure-number">Figure 4: </span><a href="http://www.uvm.edu/pdodds/teaching/courses/2009-08UVM-300/docs/others/2004/milo2004a.pdf">Superfamilies of Evolved and Designed Networks</a></p>
+</div>
+
+<p>
+注目点
+</p>
+<ul>
+<li>分野によって重要性プロファイルが似ている</li>
+<li>それぞれのモチーフの特性を吟味する</li>
+
+</ul>
+</section>
+<section id="slide-orgd233a84">
+<h3 id="orgd233a84">Significance Profile</h3>
+
+<div id="org337fd79" class="figure">
+<p><img src="./images/significance_profile.jpg" alt="significance_profile.jpg" />
+</p>
+</div>
+</section>
+<section id="slide-orge521014">
+<h3 id="orge521014">実装の手法例（計画）</h3>
+<ul>
+<li>ランダムで作ったネットワークの各モチーフの分布に本ネットワークの分布を比べて需要性プロファイルを作成</li>
+<li>ネットワークにあるモチーフの分布でそのモチーフの重要性を計算数る</li>
+<li>3-モチーフ、ノードの関係性</li>
+<li>ベースのモデルを選び、それに比べて、モチーフの z-score を算出</li>
+<li>例えばスケールフリーのネットワークの分布をもつランダムなネットワークをシミュレーション</li>
+<li>シミュレーションだけではなく、典型的なソーシャルネットワークに比べることもできる</li>
+<li>アーティスト同士での significance も計算可能</li>
+
+</ul>
+</section>
+<section id="slide-org5826f8f">
+<h3 id="org5826f8f">Z-scoreの算出</h3>
+<p>
+\( Z_{i} = \frac{N_{i}^{real} - N_{i}^{rand}}{sd(N_{i}^{rand})} \)
+</p>
+<ul>
+<li>\( N_{i}^{real} \)  (モチーフ \( i \)　が実際に起きた回数)</li>
+<li>\( N_{i}^{rand} \)  (モチーフ \( i \) がシミュレーションで起きた回数)</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-orga4f4551">
+<h2 id="orga4f4551">ネットワーク構造の結果</h2>
+<div class="outline-text-2" id="text-orga4f4551">
+</div>
+</section>
+<section id="slide-orgeb1328b">
+<h3 id="orgeb1328b"><span class="todo TODO">TODO</span> ネットワークはこんな感じにできた</h3>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">アーティスト</th>
+<th scope="col" class="org-left">１次フォロワー（数）</th>
+<th scope="col" class="org-left">2次フォロワー（数）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+</section>
+<section id="slide-org23865df">
+<h3 id="org23865df"><span class="todo TODO">TODO</span> hinatazaka46</h3>
+
+<div id="org9782ef8" class="figure">
+<p><img src="./images/hinata46_graph.png" alt="hinata46_graph.png" />
+</p>
+<p><span class="figure-number">Figure 5: </span>Hinatazaka46</p>
+</div>
+</section>
+<section id="slide-org412efde">
+<h3 id="org412efde"><span class="todo TODO">TODO</span> ILikeAkairo</h3>
+
+<div id="org1dd5dd9" class="figure">
+<p><img src="./images/ILikeAkairo_graph.png" alt="ILikeAkairo_graph.png" />
+</p>
+<p><span class="figure-number">Figure 6: </span>ILikeAkairo</p>
+</div>
+</section>
+<section id="slide-org35f0595">
+<h3 id="org35f0595"><span class="todo TODO">TODO</span> sakurazaka46</h3>
+
+<div id="org293f82d" class="figure">
+<p><img src="./images/sakurazaka46_graph.png" alt="sakurazaka46_graph.png" />
+</p>
+<p><span class="figure-number">Figure 7: </span>sakurazaka46</p>
+</div>
+</section>
+<section id="slide-orgce24b82">
+<h3 id="orgce24b82"><span class="todo TODO">TODO</span> hinatazaka46</h3>
+
+<div id="orge23f965" class="figure">
+<p><img src="./images/hinata46network.png" alt="hinata46network.png" />
+</p>
+<p><span class="figure-number">Figure 8: </span>Hinatazaka46</p>
+</div>
+</section>
+<section id="slide-org0fd667d">
+<h3 id="org0fd667d"><span class="todo TODO">TODO</span> hinatazaka46</h3>
+
+<div id="orge2637ef" class="figure">
+<p><img src="./images/hinata46network.png" alt="hinata46network.png" />
+</p>
+<p><span class="figure-number">Figure 9: </span>Hinatazaka46</p>
+</div>
+</section>
+<section id="slide-org154cd7e">
+<h3 id="org154cd7e"><span class="todo TODO">TODO</span> hinatazaka46</h3>
+
+<div id="org2508760" class="figure">
+<p><img src="./images/hinata46network.png" alt="hinata46network.png" />
+</p>
+<p><span class="figure-number">Figure 10: </span>Hinatazaka46</p>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-orgf0ff6bc">
+<h2 id="orgf0ff6bc">モチーフ分析結果</h2>
+<div class="outline-text-2" id="text-orgf0ff6bc">
+</div>
+</section>
+<section id="slide-orga31a5a8">
+<h3 id="orga31a5a8"><span class="todo TODO">TODO</span> hinatazaka46</h3>
+
+<div id="org695bde0" class="figure">
+<p><img src="./images/hinata46_motif.png" alt="hinata46_motif.png" />
+</p>
+<p><span class="figure-number">Figure 11: </span>Hinatazaka46</p>
+</div>
+</section>
+<section id="slide-orgf808a71">
+<h3 id="orgf808a71"><span class="todo TODO">TODO</span> ILikeAkairo</h3>
+
+<div id="org4bbd369" class="figure">
+<p><img src="./images/ILikeAkairo_motif.png" alt="ILikeAkairo_motif.png" />
+</p>
+<p><span class="figure-number">Figure 12: </span>ILikeAkairo</p>
+</div>
+</section>
+<section id="slide-org7666107">
+<h3 id="org7666107"><span class="todo TODO">TODO</span> sakurazaka46</h3>
+
+<div id="org45db49f" class="figure">
+<p><img src="./images/sakurazaka46_motif.png" alt="sakurazaka46_motif.png" />
+</p>
+<p><span class="figure-number">Figure 13: </span>sakurazaka46</p>
+</div>
+</section>
+<section id="slide-orgf847d47">
+<h3 id="orgf847d47"><span class="todo TODO">TODO</span> hinatazaka46</h3>
+
+<div id="org549f6ff" class="figure">
+<p><img src="./images/hinata46_motif.png" alt="hinata46_motif.png" />
+</p>
+<p><span class="figure-number">Figure 14: </span>Hinatazaka46</p>
+</div>
+</section>
+<section id="slide-org2d1aa6c">
+<h3 id="org2d1aa6c"><span class="todo TODO">TODO</span> hinatazaka46</h3>
+
+<div id="orgfc3b6a0" class="figure">
+<p><img src="./images/hinata46_motif.png" alt="hinata46_motif.png" />
+</p>
+<p><span class="figure-number">Figure 15: </span>Hinatazaka46</p>
+</div>
+</section>
+<section id="slide-org0060229">
+<h3 id="org0060229"><span class="todo TODO">TODO</span> hinatazaka46</h3>
+
+<div id="org53ea33f" class="figure">
+<p><img src="./images/hinata46_motif.png" alt="hinata46_motif.png" />
+</p>
+<p><span class="figure-number">Figure 16: </span>Hinatazaka46</p>
+</div>
+
+</section>
+<section id="slide-org29dbd90">
+<h3 id="org29dbd90">全体のネットワーク</h3>
+</section>
+</section>
+<section>
+<section id="slide-orgc81b4bb">
+<h2 id="orgc81b4bb">Discussion</h2>
+<div class="outline-text-2" id="text-orgc81b4bb">
+</div>
+</section>
+<section id="slide-orgac91166">
+<h3 id="orgac91166">Clustering・中心性など</h3>
+<ul>
+<li>木構造になっているため、中心性は出しにくい</li>
+<li>重み付をつかって</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-org5ac2b17">
+<h2 id="org5ac2b17">More Ideas</h2>
+</section>
+</section>
+</div>
+</div>
+<script src="./reveal.js/dist/reveal.js"></script>
+<script src="./reveal.js/plugin/markdown/markdown.js"></script>
+<script src="./reveal.js/plugin/notes/notes.js"></script>
+<script src="./reveal.js/plugin/search/search.js"></script>
+<script src="./reveal.js/plugin/zoom/zoom.js"></script>
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: 'c',
+rollingLinks: false,
+keyboard: true,
+mouseWheel: false,
+fragmentInURL: false,
+hashOneBasedIndex: false,
+pdfSeparateFragments: true,
+overview: true,
+
+transition: 'convex',
+transitionSpeed: 'default',
+
+// Plugins with reveal.js 4.x
+plugins: [ RevealMarkdown, RevealNotes, RevealSearch, RevealZoom ],
+
+// Optional libraries used to extend reveal.js
+dependencies: [
+]
+
+});
+</script>
+</body>
+</html>
