@@ -179,6 +179,12 @@ Artist in the middle is sakurazaka46 (IIR) because they had the most followers
 ** Data Sampling
 #+CAPTION: Data Traversal (幅優先探索)
 [[./images/searches.jpg]]
+
+** Data Question
+#+CAPTION: (nariaki_filtered/5092241.json)
+[[./images/nariaki.jpg]]
+
+
 *  More Ideas
 #+begin_export html
 <div class="Cube panelLoad">
