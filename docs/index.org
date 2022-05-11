@@ -57,12 +57,36 @@
 \( Z_{i} = \frac{N_{i}^{real} - N_{i}^{rand}}{sd(N_{i}^{rand})} \)
 - \( N_{i}^{real} \)  (モチーフ \( i \)　が実際に起きた回数)
 - \( N_{i}^{rand} \)  (モチーフ \( i \) がシミュレーションで起きた回数)
-* ネットワーク構造の結果
-** TODO ネットワークはこんな感じにできた
+* ネットワーク構造
+** ネットワーク構造
+#+BEGIN_NOTES
+We are losing a few 2nd followers after pruning but ...
+#+END_NOTES
 
-| アーティスト | １次フォロワー（数） | 2次フォロワー（数） |
-|--------------+----------------------+---------------------|
-|              |                      |                     |
+#+REVEAL_HTML: <div class="twocolumn" display: flex>
+#+REVEAL_HTML: <div>
+#+ATTR_REVEAL: :frag (roll-in)
+#+Caption: Before Pruning
+|               | １次フォロワー | ２次フォロワー |
+| Vaundy_engawa |         179028 |           2145 |
+| kojikoji__i2  |          36422 |           1873 |
+| sakurazaka46  |        1196050 |           3597 |
+| ILikeAkairo   |          67371 |           2127 |
+| FujiiKaze     |         319103 |           3011 |
+| hinatazaka46  |         750088 |           3181 |
+#+REVEAL_HTML: </div>
+#+REVEAL_HTML: <div>
+#+ATTR_REVEAL: :frag (roll-in)
+#+Caption: After Pruning
+|               | １次フォロワー | ２次フォロワー |
+| Vaundy_engawa |           2097 |           1963 |
+| kojikoji__i2  |           1846 |           1743 |
+| sakurazaka46  |           3573 |           2911 |
+| ILikeAkairo   |           2099 |           1971 |
+| FujiiKaze     |           2965 |           2807 |
+| hinatazaka46  |           3160 |           2625 |
+
+#+REVEAL_HTML: </div>
 
 #+REVEAL: split
 #+CAPTION: Vaundy_engawa
