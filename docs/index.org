@@ -1,13 +1,18 @@
 #+TITLE: Sony Music Entertainment
 #+SUBTITLE: ネットワーク分析
 #+Bibliography: /Users/jiyanschneider/Dropbox/Documents/lib/bibliography/bib.bib
-#+EXPORT_OPTIONS: num:nil reveal_keyboard:t reveal_overview:t reveal_global_footer:t reveal_global_header:t
+#+BEAMER_FRAME_LEVEL: 2
+#+OPTIONS: H:4 toc:1 num:nil email:nil
+
+:REVEAL_PROPERTIES:
 #+REVEAL_TITLE_SLIDE: <h1>%t</h1><br><h2>%s</h2><br><h4>%a</h4>
 #+REVEAL_ROOT: ./reveal.js/
 #+REVEAL_EXTRA_CSS: custom.css
 #+REVEAL_THEME: serif
-#+BEAMER_FRAME_LEVEL: 2
-#+OPTIONS: H:4 toc:2 num:nil
+#+REVEAL_TRANS: linear
+#+REVEAL_MARGIN: 0.3
+#+REVEAL_HLEVEL: 1
+:END:
 
 * データの確認
 #+BEGIN_NOTES
@@ -21,7 +26,7 @@
 *** 2次フォロワー
 #+CAPTION: FujiKaze.json
 [[file:./images/screenshot-02.png]]
-* モチーフ分析
+* モチーフ分析 (Refresher)
 :PROPERTIES:
 :ID:       763981a8-cbc9-46d1-b101-097be7f69a50
 :END:
@@ -57,26 +62,29 @@
 |--------------+----------------------+---------------------|
 |              |                      |                     |
 
-** TODO hinatazaka46
+** FujiiKaze
+#+CAPTION: FujiiKaze
+[[./images/FujiiKaze_graph.png]]
+** hinatazaka46
 #+CAPTION: Hinatazaka46
-[[./images/hinata46_graph.png]]
-** TODO ILikeAkairo
+[[./images/hinatazaka46_graph.png]]
+** ILikeAkairo
 #+CAPTION: ILikeAkairo
 [[./images/ILikeAkairo_graph.png]]
-** TODO sakurazaka46
+** kojikoji__i2
+#+CAPTION: kojikoji__i2
+[[./images/kojikoji__i2_graph.png]]
+** sakurazaka46
 #+CAPTION: sakurazaka46
 [[./images/sakurazaka46_graph.png]]
-** TODO hinatazaka46
+** Vaundy_engawa
 #+CAPTION: Hinatazaka46
-[[./images/hinata46network.png]]
-** TODO hinatazaka46
-#+CAPTION: Hinatazaka46
-[[./images/hinata46network.png]]
-** TODO hinatazaka46
-#+CAPTION: Hinatazaka46
-[[./images/hinata46network.png]]
+[[./images/Vaundy_engawa_graph.png]]
+** TODO Complete graph
+#+CAPTION: Complete Graph
+[[./images/complete_graph_graph.png]]
 * モチーフ分析結果
-** TODO hinatazaka46
+** DONE hinatazaka46
 #+CAPTION: Hinatazaka46
 [[./images/hinata46_motif.png]]
 ** TODO ILikeAkairo
@@ -96,7 +104,7 @@
 [[./images/hinata46_motif.png]]
 
 ** 全体のネットワーク
-* Discussion
+* ( Discussion )
 ** Clustering・中心性など
  - 木構造になっているため、中心性は出しにくい
  - 重み付をつかって
@@ -104,5 +112,4 @@
 ** Data Sampling
 #+CAPTION: Data Traversal (幅優先探索)
 [[./images/searches.jpg]]
-* More Ideas
-
+* ( More Ideas )
