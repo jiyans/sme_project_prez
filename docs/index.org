@@ -23,7 +23,7 @@
 #+CAPTION: Follower〇〇.json
 [[file:./images/screenshot-03.png]]
 
-*** TODO 2次フォロワー
+*** 2次フォロワー
 #+ATTR_HTML: :class screenshot
 #+CAPTION: FujiKaze.json
 [[file:./images/screenshot-02.png]]
