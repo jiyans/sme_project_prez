@@ -4,13 +4,13 @@
 #+BEAMER_FRAME_LEVEL: 2
 #+OPTIONS: H:4 toc:1 num:nil email:nil
 
+
 :REVEAL_PROPERTIES:
 #+REVEAL_TITLE_SLIDE: <h1>%t</h1><br><h2>%s</h2><br><h4>%a</h4>
 #+REVEAL_ROOT: ./reveal.js/
 #+REVEAL_EXTRA_CSS: custom.css
 #+REVEAL_THEME: serif
 #+REVEAL_TRANS: linear
-#+REVEAL_MARGIN: 0.3
 #+REVEAL_HLEVEL: 1
 :END:
 
@@ -23,7 +23,8 @@
 #+CAPTION: Follower〇〇.json
 [[file:./images/screenshot-03.png]]
 
-*** 2次フォロワー
+*** TODO 2次フォロワー
+#+ATTR_HTML: :class screenshot
 #+CAPTION: FujiKaze.json
 [[file:./images/screenshot-02.png]]
 * モチーフ分析 (Refresher)
@@ -58,58 +59,110 @@
 - \( N_{i}^{rand} \)  (モチーフ \( i \) がシミュレーションで起きた回数)
 * ネットワーク構造の結果
 ** TODO ネットワークはこんな感じにできた
+
 | アーティスト | １次フォロワー（数） | 2次フォロワー（数） |
 |--------------+----------------------+---------------------|
 |              |                      |                     |
 
-** FujiiKaze
-#+CAPTION: FujiiKaze
-[[./images/FujiiKaze_graph.png]]
-** hinatazaka46
-#+CAPTION: Hinatazaka46
-[[./images/hinatazaka46_graph.png]]
-** ILikeAkairo
-#+CAPTION: ILikeAkairo
-[[./images/ILikeAkairo_graph.png]]
-** kojikoji__i2
-#+CAPTION: kojikoji__i2
-[[./images/kojikoji__i2_graph.png]]
-** sakurazaka46
-#+CAPTION: sakurazaka46
-[[./images/sakurazaka46_graph.png]]
-** Vaundy_engawa
-#+CAPTION: Hinatazaka46
+#+REVEAL: split
+#+CAPTION: Vaundy_engawa
+#+ATTR_HTML:  :class graph_image
 [[./images/Vaundy_engawa_graph.png]]
-** TODO Complete graph
-#+CAPTION: Complete Graph
-[[./images/complete_graph_graph.png]]
-* モチーフ分析結果
-** DONE hinatazaka46
-#+CAPTION: Hinatazaka46
-[[./images/hinata46_motif.png]]
-** TODO ILikeAkairo
-#+CAPTION: ILikeAkairo
-[[./images/ILikeAkairo_motif.png]]
-** TODO sakurazaka46
-#+CAPTION: sakurazaka46
-[[./images/sakurazaka46_motif.png]]
-** TODO hinatazaka46
-#+CAPTION: Hinatazaka46
-[[./images/hinata46_motif.png]]
-** TODO hinatazaka46
-#+CAPTION: Hinatazaka46
-[[./images/hinata46_motif.png]]
-** TODO hinatazaka46
-#+CAPTION: Hinatazaka46
-[[./images/hinata46_motif.png]]
 
-** 全体のネットワーク
-* ( Discussion )
-** Clustering・中心性など
- - 木構造になっているため、中心性は出しにくい
- - 重み付をつかって
+#+REVEAL: split
+#+CAPTION: kojikoji__i2
+#+ATTR_HTML:  :class graph_image
+[[./images/kojikoji__i2_graph.png]]
+
+#+REVEAL: split
+#+CAPTION: ILikeAkairo
+#+ATTR_HTML:  :class graph_image
+[[./images/ILikeAkairo_graph.png]]
+
+#+REVEAL: split
+#+CAPTION: sakurazaka46
+#+ATTR_HTML:  :class graph_image
+[[./images/sakurazaka46_graph.png]]
+
+#+REVEAL: split
+#+CAPTION: Hinatazaka46
+#+ATTR_HTML:  :class graph_image
+[[./images/hinatazaka46_graph.png]]
+
+#+REVEAL: split
+#+CAPTION: FujiiKaze
+#+ATTR_HTML:  :class graph_image
+[[./images/FujiiKaze_graph.png]]
+
+** Complete graph
+#+ATTR_HTML:  :class graph_image
+[[./images/complete_graph_graph.png]]
+
+* モチーフ分析結果
+#+REVEAL: split
+#+CAPTION: Vaundy_engawa
+#+ATTR_HTML:  :class motif_image
+[[./images/Vaundy_engawa_motif.png]]
+
+#+REVEAL: split
+#+CAPTION: kojikoji__i2
+#+ATTR_HTML:  :class motif_image
+[[./images/kojikoji__i2_motif.png]]
+
+#+REVEAL: split
+#+CAPTION: ILikeAkairo
+#+ATTR_HTML:  :class motif_image
+[[./images/ILikeAkairo_motif.png]]
+
+#+REVEAL: split
+#+CAPTION: sakurazaka46
+#+ATTR_HTML:  :class motif_image
+[[./images/sakurazaka46_motif.png]]
+
+#+REVEAL: split
+#+CAPTION: Hinatazaka46
+#+ATTR_HTML:  :class motif_image
+[[./images/hinatazaka46_motif.png]]
+
+#+REVEAL: split
+#+CAPTION: FujiiKaze
+#+ATTR_HTML:  :class motif_image
+[[./images/FujiiKaze_motif.png]]
+
+** All Artists
+#+BEGIN_NOTES
+Artist in the middle is sakurazaka46 (IIR) because they had the most followers
+#+END_NOTES
+
+#+ATTR_HTML:  :class motif_image
+#+CAPTION: All Artists
+[[./images/everything_motif.png]]
+
+*  Discussion
+
+#+begin_export html
+<div class="Cube panelLoad">
+    <div class="cube-face cube-face-front">!</div>
+    <div class="cube-face cube-face-back"><img src="images/logo.png" width="50%"></div>
+    <div class="cube-face cube-face-left"><img src="images/logo.png" width="50%"></div>
+    <div class="cube-face cube-face-right"><img src="images/logo.png" width="50%"></div>
+    <div class="cube-face cube-face-bottom"><img src="images/logo.png" width="50%"></div>
+    <div class="cube-face cube-face-top"><img src="images/logo.png" width="50%"></div>
+</div>
+#+end_export
+
 
 ** Data Sampling
 #+CAPTION: Data Traversal (幅優先探索)
 [[./images/searches.jpg]]
-* ( More Ideas )
+*  More Ideas
+#+begin_export html
+<div class="Cube panelLoad">
+    <div class="cube-face cube-face-front">?</div>
+    <div class="cube-face cube-face-back"><img src="images/logo.png" width="50%"></div>
+    <div class="cube-face cube-face-left"><img src="images/logo.png" width="50%"></div>
+    <div class="cube-face cube-face-right"><img src="images/logo.png" width="50%"></div>
+    <div class="cube-face cube-face-bottom"><img src="images/logo.png" width="50%"></div>
+    <div class="cube-face cube-face-top"><img src="images/logo.png" width="50%"></div>
+</div>
+#+end_export

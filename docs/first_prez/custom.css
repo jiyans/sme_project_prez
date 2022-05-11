@@ -23,3 +23,11 @@
   text-align: center;
   align-items: center;
 }
+
+.Cube.panelLoad {
+	z-index: 11;
+	top: 50%;
+	margin-top: -60px;
+	-webkit-animation: panel 2.2s infinite forwards;
+	animation: panel 2.2s infinite forwards;
+}

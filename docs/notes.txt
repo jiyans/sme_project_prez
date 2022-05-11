@@ -1,0 +1,65 @@
+その他のデータ：
+    ネクライトーキー：MV の視聴回数
+    リーガルリリー：spotify, youtube （視聴回数）
+    おぶくろ：ネットワーク
+Ask how the tweets collected were chosen. Is it all tweets. Is tweets that have the artists name in them.
+Maybe a hashtag..?
+Also ask whether the data like we have for lilly is available for the other artists as well.
+Maybe ask whether they have scraped it already
+
+Vaundy_engawa
+2249 1350
+
+kojikoji__i2
+2868 2281
+
+sakurazaka46
+3969 1934
+
+ILikeAkairo
+2917 2803
+
+FujiiKaze
+3680 3678
+
+hinatazaka46
+3666 3579
+
+
+<div class="Cube panelLoad">
+              <div class="cube-face cube-face-front">?</div>
+              <div class="cube-face cube-face-back"><img src="../common/media/logo.png" width="50%"></div>
+              <div class="cube-face cube-face-left"><img src="../common/media/logo.png" width="50%"></div>
+              <div class="cube-face cube-face-right"><img src="../common/media/logo.png" width="50%"></div>
+              <div class="cube-face cube-face-bottom"><img src="../common/media/logo.png" width="50%"></div>
+              <div class="cube-face cube-face-top"><img src="../common/media/logo.png" width="50%"></div>
+            </div>
+
+.Cube.panelLoad {
+	z-index: 11;
+	top: 50%;
+	margin-top: -60px;
+	-webkit-animation: panel 2.2s infinite forwards;
+	animation: panel 2.2s infinite forwards;
+}
+
+.Cube {
+	width: 80px;
+	height: 80px;
+	line-height: 80px;
+	text-align: center;
+	font-size: 50px;
+	-webkit-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+	-webkit-transition: -webkit-transform 0.5s 0.1s;
+	transition: transform 0.5s 0.1s;
+	perspective: 9999px;
+	color: #333;
+	/* margin: -40px 0 0 -40px; */
+	margin: 0 auto;
+	position: absolute;
+	left: 50%;
+	margin-left: -37px;
+	top: 65px;
+	opacity: 1;
+}
