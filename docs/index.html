@@ -25,20 +25,20 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#/slide-org2690eee">データの確認</a></li>
-<li><a href="#/slide-org6a153d0">モチーフ分析 (Refresher)</a></li>
-<li><a href="#/slide-orgcef0a6f">ネットワーク構造</a></li>
-<li><a href="#/slide-org1d57df1">モチーフ分析結果</a></li>
-<li><a href="#/slide-orgf87a94a">Discussion</a></li>
-<li><a href="#/slide-org17481b8">More Ideas</a></li>
+<li><a href="#/slide-org62767e9">データの確認</a></li>
+<li><a href="#/slide-orgc25fed0">モチーフ分析 (Refresher)</a></li>
+<li><a href="#/slide-orgc110e28">ネットワーク構造</a></li>
+<li><a href="#/slide-org00d0ea5">モチーフ分析結果</a></li>
+<li><a href="#/slide-orga1698c5">Discussion</a></li>
+<li><a href="#/slide-org28d050a">More Ideas</a></li>
 </ul>
 </div>
 </div>
 </section>
 
 <section>
-<section id="slide-org2690eee">
-<h2 id="org2690eee">データの確認</h2>
+<section id="slide-org62767e9">
+<h2 id="org62767e9">データの確認</h2>
 <aside class="notes">
 <p>
 データの確認
@@ -46,25 +46,25 @@
 
 </aside>
 </section>
-<section id="slide-orgf317f92">
-<h3 id="orgf317f92">Data</h3>
-<div class="outline-text-3" id="text-orgf317f92">
+<section id="slide-orge5f60be">
+<h3 id="orge5f60be">Data</h3>
+<div class="outline-text-3" id="text-orge5f60be">
 </div>
 </section>
-<section id="slide-org5f80d1e">
-<h4 id="org5f80d1e">1次フォロワー</h4>
+<section id="slide-orge7b1831">
+<h4 id="orge7b1831">1次フォロワー</h4>
 
-<div id="orgc35f5a4" class="figure">
+<div id="org270ec9a" class="figure">
 <p><img src="./images/screenshot-03.png" alt="screenshot-03.png" />
 </p>
 <p><span class="figure-number">Figure 1: </span>Follower〇〇.json</p>
 </div>
 
 </section>
-<section id="slide-org9d88d82">
-<h4 id="org9d88d82"><span class="todo TODO">TODO</span> 2次フォロワー</h4>
+<section id="slide-orgcb6c5f7">
+<h4 id="orgcb6c5f7"><span class="todo TODO">TODO</span> 2次フォロワー</h4>
 
-<div id="orgae61295" class="figure">
+<div id="orge42de97" class="figure">
 <p><img src="./images/screenshot-02.png" alt="screenshot-02.png" class="screenshot" />
 </p>
 <p><span class="figure-number">Figure 2: </span>FujiKaze.json</p>
@@ -72,14 +72,14 @@
 </section>
 </section>
 <section>
-<section id="slide-org6a153d0">
-<h2 id="org6a153d0">モチーフ分析 (Refresher)</h2>
+<section id="slide-orgc25fed0">
+<h2 id="orgc25fed0">モチーフ分析 (Refresher)</h2>
 <ul>
 <li>3ノードの繋がり方は１３通り存在する</li>
 
 </ul>
 
-<div id="org05ec562" class="figure">
+<div id="orgb29a783" class="figure">
 <p><img src="./images/motifs.png" alt="&quot;Ego Network&quot;" style="border:None;" />
 </p>
 </div>
@@ -88,10 +88,10 @@
 
 </ul>
 </section>
-<section id="slide-org85c090a">
-<h3 id="org85c090a">Significance Profile</h3>
+<section id="slide-org3b19ba6">
+<h3 id="org3b19ba6">Significance Profile</h3>
 
-<div id="org8ddc196" class="figure">
+<div id="orge62e22f" class="figure">
 <p><img src="./images/significance_profile.jpg" alt="&quot;Ego Network&quot;" style="border:None" height="300" />
 </p>
 <p><span class="figure-number">Figure 3: </span><a href="http://www.uvm.edu/pdodds/teaching/courses/2009-08UVM-300/docs/others/2004/milo2004a.pdf">Superfamilies of Evolved and Designed Networks</a></p>
@@ -106,16 +106,16 @@
 
 </ul>
 </section>
-<section id="slide-org35fc587">
-<h3 id="org35fc587">Significance Profile</h3>
+<section id="slide-orgb7d2c87">
+<h3 id="orgb7d2c87">Significance Profile</h3>
 
-<div id="org211aacc" class="figure">
+<div id="orgcdf7468" class="figure">
 <p><img src="./images/significance_profile.jpg" alt="significance_profile.jpg" />
 </p>
 </div>
 </section>
-<section id="slide-orgef43431">
-<h3 id="orgef43431">実装の手法例（計画）</h3>
+<section id="slide-org87b85f4">
+<h3 id="org87b85f4">実装の手法例（計画）</h3>
 <ul>
 <li>ランダムで作ったネットワークの各モチーフの分布に本ネットワークの分布を比べて需要性プロファイルを作成</li>
 <li>ネットワークにあるモチーフの分布でそのモチーフの重要性を計算数る</li>
@@ -127,8 +127,8 @@
 
 </ul>
 </section>
-<section id="slide-org3c28b87">
-<h3 id="org3c28b87">Z-scoreの算出</h3>
+<section id="slide-org52ff217">
+<h3 id="org52ff217">Z-scoreの算出</h3>
 <p>
 \( Z_{i} = \frac{N_{i}^{real} - N_{i}^{rand}}{sd(N_{i}^{rand})} \)
 </p>
@@ -140,13 +140,13 @@
 </section>
 </section>
 <section>
-<section id="slide-orgcef0a6f">
-<h2 id="orgcef0a6f">ネットワーク構造</h2>
-<div class="outline-text-2" id="text-orgcef0a6f">
+<section id="slide-orgc110e28">
+<h2 id="orgc110e28">ネットワーク構造</h2>
+<div class="outline-text-2" id="text-orgc110e28">
 </div>
 </section>
-<section id="slide-org62375e5">
-<h3 id="org62375e5">ネットワーク構造</h3>
+<section id="slide-org520e451">
+<h3 id="org520e451">ネットワーク構造</h3>
 <aside class="notes">
 <p>
 We are losing a few 2nd followers after pruning but &#x2026;
@@ -272,7 +272,7 @@ We are losing a few 2nd followers after pruning but &#x2026;
 </section>
 <section>
 
-<div id="org7f43b84" class="figure">
+<div id="org4222c09" class="figure">
 <p><img src="./images/Vaundy_engawa_graph.png" alt="Vaundy_engawa_graph.png" class="graph_image" />
 </p>
 <p><span class="figure-number">Figure 4: </span>Vaundy_engawa</p>
@@ -281,7 +281,7 @@ We are losing a few 2nd followers after pruning but &#x2026;
 </section>
 <section>
 
-<div id="org3b668a1" class="figure">
+<div id="orgbd37b91" class="figure">
 <p><img src="./images/kojikoji__i2_graph.png" alt="kojikoji__i2_graph.png" class="graph_image" />
 </p>
 <p><span class="figure-number">Figure 5: </span>kojikoji__i2</p>
@@ -290,7 +290,7 @@ We are losing a few 2nd followers after pruning but &#x2026;
 </section>
 <section>
 
-<div id="org2537e4a" class="figure">
+<div id="org3d52571" class="figure">
 <p><img src="./images/ILikeAkairo_graph.png" alt="ILikeAkairo_graph.png" class="graph_image" />
 </p>
 <p><span class="figure-number">Figure 6: </span>ILikeAkairo</p>
@@ -299,7 +299,7 @@ We are losing a few 2nd followers after pruning but &#x2026;
 </section>
 <section>
 
-<div id="org70dca5c" class="figure">
+<div id="org8647e15" class="figure">
 <p><img src="./images/sakurazaka46_graph.png" alt="sakurazaka46_graph.png" class="graph_image" />
 </p>
 <p><span class="figure-number">Figure 7: </span>sakurazaka46</p>
@@ -308,7 +308,7 @@ We are losing a few 2nd followers after pruning but &#x2026;
 </section>
 <section>
 
-<div id="org16dcc2f" class="figure">
+<div id="org43b0a4f" class="figure">
 <p><img src="./images/hinatazaka46_graph.png" alt="hinatazaka46_graph.png" class="graph_image" />
 </p>
 <p><span class="figure-number">Figure 8: </span>Hinatazaka46</p>
@@ -317,17 +317,17 @@ We are losing a few 2nd followers after pruning but &#x2026;
 </section>
 <section>
 
-<div id="orgb241056" class="figure">
+<div id="org8aa7d1c" class="figure">
 <p><img src="./images/FujiiKaze_graph.png" alt="FujiiKaze_graph.png" class="graph_image" />
 </p>
 <p><span class="figure-number">Figure 9: </span>FujiiKaze</p>
 </div>
 
 </section>
-<section id="slide-org5dbc233">
-<h3 id="org5dbc233">Complete graph</h3>
+<section id="slide-orgcfbb3ff">
+<h3 id="orgcfbb3ff">Complete graph</h3>
 
-<div id="orga7b58d2" class="figure">
+<div id="org551a1ab" class="figure">
 <p><img src="./images/complete_graph_graph.png" alt="complete_graph_graph.png" class="graph_image" />
 </p>
 </div>
@@ -335,12 +335,12 @@ We are losing a few 2nd followers after pruning but &#x2026;
 </section>
 </section>
 <section>
-<section id="slide-org1d57df1">
-<h2 id="org1d57df1">モチーフ分析結果</h2>
+<section id="slide-org00d0ea5">
+<h2 id="org00d0ea5">モチーフ分析結果</h2>
 </section>
 <section>
 
-<div id="orgef1aafd" class="figure">
+<div id="orgbcbb4c5" class="figure">
 <p><img src="./images/Vaundy_engawa_motif.png" alt="Vaundy_engawa_motif.png" class="motif_image" />
 </p>
 <p><span class="figure-number">Figure 10: </span>Vaundy_engawa</p>
@@ -349,7 +349,7 @@ We are losing a few 2nd followers after pruning but &#x2026;
 </section>
 <section>
 
-<div id="org50bda6f" class="figure">
+<div id="org95eaccb" class="figure">
 <p><img src="./images/kojikoji__i2_motif.png" alt="kojikoji__i2_motif.png" class="motif_image" />
 </p>
 <p><span class="figure-number">Figure 11: </span>kojikoji__i2</p>
@@ -358,7 +358,7 @@ We are losing a few 2nd followers after pruning but &#x2026;
 </section>
 <section>
 
-<div id="orgea5c836" class="figure">
+<div id="orgd49a634" class="figure">
 <p><img src="./images/ILikeAkairo_motif.png" alt="ILikeAkairo_motif.png" class="motif_image" />
 </p>
 <p><span class="figure-number">Figure 12: </span>ILikeAkairo</p>
@@ -367,7 +367,7 @@ We are losing a few 2nd followers after pruning but &#x2026;
 </section>
 <section>
 
-<div id="orgfb53943" class="figure">
+<div id="orga903001" class="figure">
 <p><img src="./images/sakurazaka46_motif.png" alt="sakurazaka46_motif.png" class="motif_image" />
 </p>
 <p><span class="figure-number">Figure 13: </span>sakurazaka46</p>
@@ -376,7 +376,7 @@ We are losing a few 2nd followers after pruning but &#x2026;
 </section>
 <section>
 
-<div id="org37d0931" class="figure">
+<div id="org7ad94bf" class="figure">
 <p><img src="./images/hinatazaka46_motif.png" alt="hinatazaka46_motif.png" class="motif_image" />
 </p>
 <p><span class="figure-number">Figure 14: </span>Hinatazaka46</p>
@@ -385,15 +385,15 @@ We are losing a few 2nd followers after pruning but &#x2026;
 </section>
 <section>
 
-<div id="orgf5008d9" class="figure">
+<div id="org5c7b17a" class="figure">
 <p><img src="./images/FujiiKaze_motif.png" alt="FujiiKaze_motif.png" class="motif_image" />
 </p>
 <p><span class="figure-number">Figure 15: </span>FujiiKaze</p>
 </div>
 
 </section>
-<section id="slide-org51e8e9d">
-<h3 id="org51e8e9d">All Artists</h3>
+<section id="slide-orgcd9e00a">
+<h3 id="orgcd9e00a">All Artists</h3>
 <aside class="notes">
 <p>
 Artist in the middle is sakurazaka46 (IIR) because they had the most followers
@@ -402,7 +402,7 @@ Artist in the middle is sakurazaka46 (IIR) because they had the most followers
 </aside>
 
 
-<div id="orgb5d327c" class="figure">
+<div id="org8743e95" class="figure">
 <p><img src="./images/everything_motif.png" alt="everything_motif.png" class="motif_image" />
 </p>
 <p><span class="figure-number">Figure 16: </span>All Artists</p>
@@ -411,8 +411,8 @@ Artist in the middle is sakurazaka46 (IIR) because they had the most followers
 </section>
 </section>
 <section>
-<section id="slide-orgf87a94a">
-<h2 id="orgf87a94a">Discussion</h2>
+<section id="slide-orga1698c5">
+<h2 id="orga1698c5">Discussion</h2>
 <div class="Cube panelLoad">
     <div class="cube-face cube-face-front">!</div>
     <div class="cube-face cube-face-back"><img src="images/logo.png" width="50%"></div>
@@ -424,10 +424,10 @@ Artist in the middle is sakurazaka46 (IIR) because they had the most followers
 
 
 </section>
-<section id="slide-orgceb8997">
-<h3 id="orgceb8997">Data Sampling</h3>
+<section id="slide-org0de50d6">
+<h3 id="org0de50d6">Data Sampling</h3>
 
-<div id="org1bcadfd" class="figure">
+<div id="org49c8d4b" class="figure">
 <p><img src="./images/searches.jpg" alt="searches.jpg" />
 </p>
 <p><span class="figure-number">Figure 17: </span>Data Traversal (幅優先探索)</p>
@@ -435,8 +435,8 @@ Artist in the middle is sakurazaka46 (IIR) because they had the most followers
 </section>
 </section>
 <section>
-<section id="slide-org17481b8">
-<h2 id="org17481b8">More Ideas</h2>
+<section id="slide-org28d050a">
+<h2 id="org28d050a">More Ideas</h2>
 <div class="Cube panelLoad">
     <div class="cube-face cube-face-front">?</div>
     <div class="cube-face cube-face-back"><img src="images/logo.png" width="50%"></div>
